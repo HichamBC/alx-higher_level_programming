@@ -6,5 +6,7 @@ def uppercase(str):
             character = chr(num - 32)
         else:
             character = letter
-        print(character, end="")
-    print()
+        if str.index(letter) != len(str) - 1:
+            print("{}".format(character), end="")
+        else:
+            print("{}".format(character))
