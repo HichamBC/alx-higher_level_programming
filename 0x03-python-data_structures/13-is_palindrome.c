@@ -52,7 +52,7 @@ int is_palindrome(listint_t **head)
 	int *arr = NULL;
 	int is_palindrome = 1;
 
-	if (head == NULL || *head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
 
