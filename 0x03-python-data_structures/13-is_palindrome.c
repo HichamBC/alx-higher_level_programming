@@ -19,9 +19,6 @@ int is_palindrome(listint_t **head)
 	int is_palindrome = 1;
 	listint_t *ptr = *head;
 
-	if (head == NULL || *head == NULL)
-		return (1);
-
 	while (ptr != NULL)
 	{
 		count++;
@@ -46,6 +43,7 @@ int is_palindrome(listint_t **head)
 		if (arr[i] != arr[j])
 		{
 			is_palindrome = 0;
+			free(arr);
 			break;
 		}
 	}
