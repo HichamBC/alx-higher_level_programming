@@ -2,71 +2,44 @@
 #include "lists.h"
 
 /**
- * linked_list_to_array - Converts a linked list to an array
- * @head: Pointer to the head of the linked list
- * @array: Pointer to store the resulting array
- *
- * Return: The number of elements in the resulting array
- */
-
-int linked_list_to_array(listint_t *head, int **array)
-{
-	listint_t *p = head;
-	int count = 0;
-	int i;
-
-	while (p != NULL)
-	{
-		count++;
-		p = p->next;
-	}
-
-	*array = malloc(sizeof(int) * count);
-	if (*array == NULL)
-		return (0);
-
-	p = head;
-	for (i = 0; i < count; i++)
-	{
-		(*array)[i] = p->n;
-		p = p->next;
-	}
-
-	return (count);
-}
-
-
-/**
  * is_palindrome - Checks if a singly linked list is a palindrome
- *
- * @head: Pointer to a pointer to the head node of the linked list
+ * @head: A pointer to a pointer to the head of the linked list
  *
  * Return: 1 if the linked list is a palindrome, 0 otherwise
  */
 
 int is_palindrome(listint_t **head)
 {
-	int i;
-	int j;
-	int *arr = NULL;
-	int is_palindrome = 1;
+	int count = 0;
+	listint_t *p1 = *head;
+	listint_t *p2 = *head;
+	listint_t *temp = NULL;
 
-	if (*head == NULL || (*head)->next == NULL)
-		return (1);
-
-
-	j = linked_list_to_array(*head, &arr) - 1;
-
-	for (i = 0; i < j; i++, j--)
+	while (p1 != NULL)
 	{
-		if (arr[i] != arr[j])
+		count++;
+		p1 = p1->next;
+	}
+	p1 = *head;
+
+	while (p2 != temp)
+	{
+		if (temp == p2->next && count % 2 != 0)
+			return (1);
+
+		while (p1->next->next != temp)
+			p1 = p1->next;
+		temp = p1->next;
+
+		if (p2->n == temp->n)
 		{
-			is_palindrome = 0;
-			break;
+			p2 = p2->next;
+			p1 = p2;
+		}
+		else
+		{
+			return (0);
 		}
 	}
-
-	free(arr);
-
-	return (is_palindrome);
+	return (1);
 }
