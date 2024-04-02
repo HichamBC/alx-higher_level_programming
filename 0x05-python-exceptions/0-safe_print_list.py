@@ -17,7 +17,7 @@ def safe_print_list(my_list=[], x=0):
         for _ in range(x):
             print(my_list[num], end="")
             num += 1
-    except exception:
+    except Exception:
         pass
     finally:
         print()
