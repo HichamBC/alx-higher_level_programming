@@ -19,7 +19,9 @@ class Square:
         Args:
             size (int): The size of the square.
             position (tuple): position of the square.
-
+        Raises:
+            TypeError: if size is not an int or position is not a tuple.
+            ValueError: if size is less than 0.
         Returns:
             None
         """
