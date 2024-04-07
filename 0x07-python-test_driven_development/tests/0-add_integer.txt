@@ -8,37 +8,37 @@
 
     >>> add_integer = __import__('0-add_integer').add_integer
 
-test arguments 'a' and 'b' are positive.
 
+test arguments 'a' and 'b' are positive.
 ::
 
 
     >>> add_integer(1, 3)
     4
 
-test arguments 'a' and 'b' are floats.
 
+test arguments 'a' and 'b' are floats.
 ::
 
     >>> add_integer(5.3, 7.5)
     12
 
-test argument 'a' is negative.
 
+test argument 'a' is negative.
 ::
 
     >>> add_integer(-20)
     78
 
-test argument b is default value.
 
+test argument b is default value.
 ::
 
     >>> add_integer(5)
     103
 
-test argument 'a' is None.
 
+test argument 'a' is None.
 ::
 
     >>> add_integer(None)
@@ -46,8 +46,8 @@ test argument 'a' is None.
         ...
     TypeError: a must be an integer
 
-test no argument is inputed.
 
+test no argument is inputed.
 ::
 
     >>> add_integer()
@@ -55,8 +55,8 @@ test no argument is inputed.
         ...
     TypeError: add_integer() missing 1 required positional argument: 'a'
 
-test argument 'a' is not an int nor a float.
 
+test argument 'a' is not an int nor a float.
 ::
 
     >>> add_integer("best", 3)
@@ -64,8 +64,8 @@ test argument 'a' is not an int nor a float.
         ...
     TypeError: a must be an integer
 
-test argument 'b' is not an int nor a float.
 
+test argument 'b' is not an int nor a float.
 ::
 
     >>> add_integer(1, "school")
