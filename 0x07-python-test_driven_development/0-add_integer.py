@@ -2,7 +2,7 @@
 """This module provides a function to add two numbers.
 
 Functions:
-    add_integer(a, b=98): Adds two numbers and returns the result as an integer.
+    add_integer(a, b=98): Adds two numbers and returns the result as integer.
 """
 
 
