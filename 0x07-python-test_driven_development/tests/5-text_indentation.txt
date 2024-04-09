@@ -1,0 +1,81 @@
+===============================
+ How to Use 5-text_indentation.py
+===============================
+
+``text_indentation(text)`` prints a text with 2 new lines after each of these characters: ., ? and :
+
+importing the function from module
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+test case 1:
+    >>> text_indentation("What is your name?")
+    What is your name?
+    <BLANKLINE>
+
+test case 2: empty string
+    >>> text_indentation("")
+
+test case 3: text with no "." "?" ":" 
+    >>> text_indentation("Python is so Awesome")
+    Python is so Awesome
+
+test case 4:
+    >>> text_indentation(" . ? :")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+test case 5: handling new line character
+    >>> text_indentation(" . ? : \n")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    <BLANKLINE>
+
+test case 6: handling white space at the beginning
+    >>> text_indentation("    Python is a popular programming language. It was created by Guido van Rossum, and released in 1991.\n")
+    Python is a popular programming language.
+    <BLANKLINE>
+    It was created by Guido van Rossum, and released in 1991.
+    <BLANKLINE>
+    <BLANKLINE>
+
+test case 7:
+    >>> text_indentation("Hello, how are you? I'm fine.")
+    Hello, how are you?
+    <BLANKLINE>
+    I'm fine.
+    <BLANKLINE>
+
+test case 8:
+    >>> text_indentation("      ")
+
+test case 9: handling new line character in the middle
+    >>> text_indentation("The strip() method removes\nany leading, and trailing whitespaces.")
+    The strip() method removes
+    any leading, and trailing whitespaces.
+    <BLANKLINE>
+
+test case 10: non string argument
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+test case 11: no argument was passed
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+test case 12: more than one argument was passed.
+    >>> text_indentation("hello", "hi")
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() takes 1 positional argument but 2 were given
