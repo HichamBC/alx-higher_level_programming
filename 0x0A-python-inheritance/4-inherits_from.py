@@ -16,4 +16,10 @@ def inherits_from(obj, a_class):
     Returns:
         True if the object is a subclass of a class, False otherwise.
     """
-    return isinstance(obj, a_class) and type(obj) != a_class
+    obj_class = obj.__class__
+    mro = obj_class.mro()
+
+    if obj_class != a_class:
+        return any(cls is a_class for cls in mro)
+
+    return False
