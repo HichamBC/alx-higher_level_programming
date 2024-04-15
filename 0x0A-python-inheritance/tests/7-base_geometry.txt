@@ -1,0 +1,72 @@
+how to use ``7-base_geometry.py`` module
+========================================
+
+
+Import the function from the module:
+	>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+Check module docstring:
+        >>> mod = __import__("7-base_geometry").__doc__
+        >>> len(mod) > 1
+        True
+
+Check class docstring:
+        >>> c = __import__("7-base_geometry").BaseGeometry.__doc__
+        >>> len(c) > 1
+        True
+
+Check area method docstring:
+	>>> m1 = __import__("7-base_geometry").BaseGeometry.area.__doc__
+	>>> len(m1) > 1
+	True
+
+check integer_validator method docstring:
+	>>> m2 = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+        >>> len(m2) > 1
+        True
+
+Check area exception handling:
+	>>> bg = BaseGeometry()
+	>>> bg.area()
+	Traceback (most recent call last):
+		...
+	Exception: area() is not implemented
+
+check integer_validator method with a valid value:
+	>>> bg.integer_validator("width", 5)
+
+check integer_validator method with a non integer value:
+	>>> bg.integer_validator("width", "five")
+	Traceback (most recent call last):
+		...
+	TypeError: width must be an integer
+
+check integer_validator method with a Zero value:
+	>>> bg.integer_validator("width", 0)
+	Traceback (most recent call last):
+		...
+	ValueError: width must be greater than 0
+
+check integer_validator method with a negative value:
+	>>> bg.integer_validator("height", -5)
+	Traceback (most recent call last):
+		 ...
+	ValueError: height must be greater than 0
+
+check no arguments to integer_validator situation:
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Checking only 1 argument to integer_validator:
+	>>> bg.integer_validator("width")
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Checking too many arguments for integer_validator:
+	>>> bg.integer_validator("width", 1, 2, 3)
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() takes 3 positional arguments but 5 were given
