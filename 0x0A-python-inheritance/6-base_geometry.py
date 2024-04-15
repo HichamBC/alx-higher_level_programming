@@ -15,4 +15,3 @@ class BaseGeometry:
             Exception: If the method is not implemented in the subclass.
         """
         raise Exception("area() is not implemented")
-
