@@ -1,0 +1,84 @@
+How to Use ``1-my_list`` module
+===============================
+
+Import the class from the module:
+	>>> MyList = __import__("1-my_list").MyList
+
+Check for module docstring:
+	>>> mod = __import__("1-my_list").__doc__
+	>>> len(mod) > 1
+	True
+
+Check for class docstring:
+	>>> c = __import__("1-my_list").MyList.__doc__
+	>>> len(c) > 1
+	True
+
+Check for method docstring:
+	>>> m = __import__("1-my_list").MyList.print_sorted.__doc__
+	>>> len(m) > 1
+	True
+
+Checking class inherits from built-in class list:
+	>>> issubclass(MyList, list)
+	True
+
+sorting and printing a list:
+	>>> lst = MyList([3, 1, 4, 2])
+	>>> lst.print_sorted()
+	[1, 2, 3, 4]
+
+checking for empty lis:
+	>>> lst = MyList()
+	>>> lst.print_sorted()
+	[]
+
+sorting and printing a list of negative elements:
+	>>> lst = MyList([-3, -1, -4, -2])
+	>>> lst.print_sorted()
+	[-4, -3, -2, -1]
+
+sorting and printing a list of duplicated elements:
+	>>> lst = MyList([3, 1, 2, 4, 1, 3])
+	>>> lst.print_sorted()
+	[1, 1, 2, 3, 3, 4]
+
+checking for a single element list:
+	>>> lst = MyList([5])
+	>>> lst.print_sorted()
+	[5]
+
+checking for built-in list class method append():
+	>>> lst = MyList()
+	>>> lst.append(1)
+	>>> lst.append(2)
+	>>> lst.append(3)
+	>>> lst.append(4)
+	>>> print(lst)
+	[1, 2, 3, 4]
+
+checking for built-in list class method extend():
+	>>> lst.extend([-5, -2])
+	>>> print(lst)
+	[1, 2, 3, 4, -5, -2]
+
+sorting and printing a list of mixed values:
+	>>> lst.print_sorted()
+	[-5, -2, 1, 2, 3, 4]
+
+checking for a string iterable:
+	>>> lst = MyList("best school")
+	>>> lst.print_sorted()
+	[' ', 'b', 'c', 'e', 'h', 'l', 'o', 'o', 's', 's', 't']
+
+checking for an integer type:
+	>>> lst = MyList(1234)
+	Traceback (most recent call last):
+		...
+	TypeError: 'int' object is not iterable
+
+checking for many arguments:
+	>>> lst = MyList([1, 2, 3], [-1, -2, -3])
+	Traceback (most recent call last):
+		...
+	TypeError: list expected at most 1 argument, got 2
