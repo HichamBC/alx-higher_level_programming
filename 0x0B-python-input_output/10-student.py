@@ -38,6 +38,7 @@ class Student:
         Returns:
             A dictionary containing the attributes of the Student instance.
         """
-        if (type(attrs) == list and all(type(attr) == str for attr in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict__
+        if attrs is None or not isinstance(attrs, list) \
+                or any(not isinstance(attr, str) for attr in attrs):
+            return self.__dict__
+        return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
